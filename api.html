@@ -7,6 +7,20 @@
     <title>API</title>
 </head>
 <body>
+    <div id="article"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var APIKey = "mHsUZ2ywuwWde8y9GHZYaoaGWL8zgKlX";
+    var queryURL = "https://api.nytimes.com/svc/topstories/v2/science.json?api-key=" + APIKey;
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+            console.log(response);
+            $("#article").text(response.results[0].title);
+        })
+
+    </script>
     
 </body>
 </html>
