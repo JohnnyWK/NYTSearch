@@ -17,7 +17,24 @@
         method: "GET"
         }).then(function(response) {
             console.log(response);
-            $("#article").text(response.results[0].title);
+            var results = response.results;
+
+
+            for (var i = 0; i < results.length; i++) {
+
+                var articleDiv = $("<div>");
+                var yearDiv = $("<p>")
+
+                var year = results[i].published_date.substring(0, 4)
+                yearDiv.text(year);
+
+                articleDiv.append(yearDiv);
+
+                articleDiv.append(results[i].title);
+
+                $("#article").prepend(articleDiv);
+                
+            }
         })
         
 
