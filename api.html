@@ -24,15 +24,29 @@
 
                 var articleDiv = $("<div>");
                 var yearDiv = $("<p>")
+                var urlDiv = $("<a>")
+                var br = $("<br>")
 
                 var year = results[i].published_date.substring(0, 4)
-                yearDiv.text(year);
+                yearDiv.text("Published Year: " + year);
+                urlDiv.attr("href", results[i].url);
+                urlDiv.attr("target", "_blank");
+                urlDiv.text(results[i].url);
 
                 articleDiv.append(yearDiv);
 
-                articleDiv.append(results[i].title);
+                articleDiv.append("Title: " + results[i].title);
 
-                $("#article").prepend(articleDiv);
+                articleDiv.append(br);
+
+                articleDiv.append("Link: ");
+                articleDiv.append(urlDiv);
+
+                console.log(urlDiv)
+
+
+
+                $("#article").append(articleDiv);
                 
             }
         })
